@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Run - Verdent</title>
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    body { margin: 0; padding: 0; overflow: hidden; background: #1a1a2e; }
+    .game-wrap { position: relative; width: 100vw; height: 100vh; max-width: 480px; margin: 0 auto; }
+    #gameCanvas { display: block; width: 100%; height: 100%; touch-action: none; }
+    .game-ui {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      font-size: 1.25rem;
+      pointer-events: none;
+    }
+    .game-over-panel {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    .game-over-panel.show { display: flex; }
+    .game-over-panel h2 { margin: 0 0 0.5rem 0; }
+    .game-over-panel p { margin: 0.5rem 0; font-size: 1.25rem; }
+    .game-over-panel .btn { margin-top: 1rem; pointer-events: auto; }
+    .start-panel {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    .start-panel.hide { display: none; }
+    .start-panel .btn { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="game-wrap">
+    <div class="start-panel" id="startPanel">
+      <h1>Runner</h1>
+      <p>Tap or press Space to jump. Avoid obstacles!</p>
+      <button type="button" class="btn" id="startBtn">Play</button>
+    </div>
+    <div class="game-ui">
+      <span>Score: <span id="scoreEl">0</span></span>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div class="game-over-panel" id="gameOverPanel">
+      <h2>Game Over</h2>
+      <p>Score: <span id="finalScore">0</span></p>
+      <button type="button" class="btn" id="replayBtn">Play again</button>
+      <a href="waiting.html" class="btn secondary" style="margin-top: 0.5rem;">Back to order</a>
+    </div>
+  </div>
+  <script src="js/game.js"></script>
+</body>
+</html>

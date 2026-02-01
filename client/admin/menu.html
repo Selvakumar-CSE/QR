@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Verdent</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Verdent Cafe</h1>
+    <p class="table-info" id="tableInfo">Table --</p>
+    <button type="button" class="cart-toggle" id="cartToggle" aria-label="Open cart">
+      Cart (<span id="cartCount">0</span>)
+    </button>
+  </header>
+  <main class="container">
+    <div id="menuLoading">Loading menu...</div>
+    <div id="menuRoot" class="hidden"></div>
+  </main>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h2>Your order</h2>
+      <button type="button" class="close-cart" id="closeCart" aria-label="Close">×</button>
+    </div>
+    <ul id="cartList"></ul>
+    <p id="cartEmpty" class="cart-empty">Cart is empty.</p>
+    <p id="cartTotal" class="cart-total hidden">Total: ₹<span id="totalAmount">0</span></p>
+    <button type="button" class="btn btn-place" id="placeOrder" disabled>Place order</button>
+  </aside>
+  <div class="cart-overlay hidden" id="cartOverlay"></div>
+  <script src="js/menu.js"></script>
+</body>
+</html>

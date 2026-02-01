@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Verdent</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-wrap">
+    <header class="admin-header">
+      <h1>Admin Dashboard</h1>
+      <div class="auth-wrap">
+        <input type="password" id="adminSecret" placeholder="Admin secret" />
+        <button type="button" id="adminLogin">Login</button>
+      </div>
+    </header>
+    <div id="authRequired" class="auth-required">
+      <p>Enter admin secret to view orders.</p>
+    </div>
+    <main id="adminMain" class="hidden">
+      <div class="filters">
+        <label>Hotel <input type="number" id="filterHotel" placeholder="Hotel ID" min="1" /></label>
+        <label>Status
+          <select id="filterStatus">
+            <option value="">All</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="preparing">Preparing</option>
+            <option value="ready">Ready</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </label>
+        <button type="button" id="btnRefresh">Refresh</button>
+      </div>
+      <div id="ordersList"></div>
+    </main>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

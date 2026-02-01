@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bill - Verdent</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <style>
+    .bill-summary { margin: 1rem 0; }
+    .bill-summary ul { list-style: none; padding: 0; margin: 0 0 1rem 0; }
+    .bill-summary li { padding: 0.5rem 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+    .bill-total { font-size: 1.25rem; font-weight: 700; margin: 1rem 0; }
+    #payBtn { margin-top: 1rem; }
+    .payment-error { color: #dc3545; margin-top: 0.5rem; }
+    .payment-success { color: #28a745; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Your bill</h1>
+    <div id="billLoading">Loading...</div>
+    <div id="billContent" class="hidden">
+      <p class="meta">Order #<span id="orderId"></span> · Table <span id="tableNumber"></span></p>
+      <ul id="billItems"></ul>
+      <p class="bill-total">Total: ₹<span id="totalAmount">0</span></p>
+      <button type="button" class="btn" id="payBtn">Pay now</button>
+      <p id="paymentError" class="payment-error hidden"></p>
+      <p id="paymentSuccess" class="payment-success hidden">Payment successful. Thank you!</p>
+    </div>
+  </main>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/bill.js"></script>
+</body>
+</html>

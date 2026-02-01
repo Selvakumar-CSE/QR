@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitchen - Verdent</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <style>
+    .kitchen-cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .kitchen-col h2 { font-size: 1rem; margin: 0 0 0.5rem 0; padding: 0.5rem; background: #f0f0f0; border-radius: 6px; }
+    .kitchen-col.new h2 { background: #fff3cd; }
+    .kitchen-col.preparing h2 { background: #ffe5d0; }
+    .kitchen-col.ready h2 { background: #d4edda; }
+  </style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <header class="admin-header">
+      <h1>Kitchen</h1>
+      <div class="auth-wrap">
+        <input type="password" id="adminSecret" placeholder="Admin secret" />
+        <button type="button" id="adminLogin">Login</button>
+      </div>
+    </header>
+    <div id="authRequired" class="auth-required">
+      <p>Enter admin secret to view kitchen orders.</p>
+    </div>
+    <main id="adminMain" class="hidden">
+      <div class="filters">
+        <label>Hotel <input type="number" id="filterHotel" placeholder="Hotel ID" min="1" /></label>
+        <button type="button" id="btnRefresh">Refresh</button>
+      </div>
+      <div class="kitchen-cols">
+        <div class="kitchen-col new">
+          <h2>New / Pending</h2>
+          <div id="colNew"></div>
+        </div>
+        <div class="kitchen-col preparing">
+          <h2>Preparing</h2>
+          <div id="colPreparing"></div>
+        </div>
+        <div class="kitchen-col ready">
+          <h2>Ready</h2>
+          <div id="colReady"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/kitchen.js"></script>
+</body>
+</html>

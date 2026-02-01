@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Status - Verdent</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/waiting.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Your order</h1>
+    <div id="orderLoading">Loading...</div>
+    <div id="orderInfo" class="hidden">
+      <p class="order-id">Order #<span id="orderId"></span></p>
+      <p class="status-line">Status: <strong id="statusText">--</strong></p>
+      <div class="status-bar">
+        <span class="step" id="stepPending">Pending</span>
+        <span class="step" id="stepPreparing">Preparing</span>
+        <span class="step" id="stepReady">Ready</span>
+        <span class="step" id="stepDone">Done</span>
+      </div>
+      <p class="game-cta">Play a quick game while you wait!</p>
+      <a href="game.html" class="btn game-btn">Play game</a>
+      <p id="readyCta" class="hidden">Your order is ready. <a href="#" id="linkBill">View bill & pay</a></p>
+    </div>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/waiting.js"></script>
+</body>
+</html>

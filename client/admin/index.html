@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdent - Order Food</title>
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Verdent Cafe</h1>
+    <p id="message">Loading...</p>
+    <p id="redirect" class="hidden">Redirecting to menu...</p>
+  </main>
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const table = params.get('table');
+      const hotel = params.get('hotel');
+      const msg = document.getElementById('message');
+      const redirect = document.getElementById('redirect');
+      if (table && hotel) {
+        sessionStorage.setItem('tableId', table);
+        sessionStorage.setItem('hotelId', hotel);
+        msg.textContent = 'Table ' + table + ' – Welcome!';
+        redirect.classList.remove('hidden');
+        window.location.replace('menu.html');
+      } else {
+        msg.textContent = 'Please scan the QR code at your table to order.';
+      }
+    })();
+  </script>
+</body>
+</html>
